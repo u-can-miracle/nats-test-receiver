@@ -22,11 +22,6 @@ async function start() {
         nc.publish(requestData.reply, JSON.stringify(requestData));
       }
     }, { queue: 'job.workers' });
-
-    await nc.subscribe('hello', (err, msg) => {
-      console.log('subscribe 2')
-    }, { queue: 'job.workers' })
-
   } catch (err) {
     console.log('err', err)
   }
